@@ -1,0 +1,12 @@
+div {
+    color: red;
+    background-color: black;
+
+}
+
+.game { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
