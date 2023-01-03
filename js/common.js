@@ -9,3 +9,14 @@ export function ready(callback) {
             if (document.readyState === 'complete') callback();
         });
 }
+
+export function formatRating(rating){
+    return rating + '/10';
+}
+
+export function createTextElement(tag, text, parent){
+    const textElement = document.createElement(tag);
+    textElement.innerText = text;
+    parent.appendChild(textElement);
+    return textElement;
+}

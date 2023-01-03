@@ -1,0 +1,11 @@
+
+#game-container {
+    margin: 20px;
+    padding: 10px;
+}
+
+#rec-title {
+    text-align: center;
+    font-size: 36px;
+    margin: 60px 20px 20px;
+}

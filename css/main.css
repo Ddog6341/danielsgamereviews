@@ -1,11 +1,6 @@
-div {
-    color: red;
-    background-color: black;
-}
 
-.game { 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
+#title {
+    text-align: center;
+    font-size: 48px;
+    margin: 20px;
 }

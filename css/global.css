@@ -1,0 +1,15 @@
+
+body {
+    color: red;
+    background-color: black;
+}
+
+.game { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border: 1px solid red;
+    margin: 20px;
+    padding: 10px;
+}
