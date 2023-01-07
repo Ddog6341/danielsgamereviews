@@ -1,5 +1,5 @@
 
-import {formatRating, ready} from './common.js';
+import {createTextElement, formatRating, ready} from './common.js';
 import {gamesTable} from './data.js';
 
 function getIdFromUrl(){
@@ -18,23 +18,13 @@ ready(function() {
         window.location.href = '../index.html';
     } else {
         const gameContainerElement = document.getElementById('game-container');
-        
-        const gameHeaderElement = document.createElement('h2');
-        gameHeaderElement.innerText = game.name;
-        gameContainerElement.appendChild(gameHeaderElement);
+    
+        createTextElement('h2', game.name, gameContainerElement);
+        createTextElement('h2', formatRating(game.rating), gameContainerElement);
+        createTextElement('p', game.review, gameContainerElement);
 
-        const gameRatingElement = document.createElement('h2');
-        gameRatingElement.innerText = formatRating(game.rating);
-        gameContainerElement.appendChild(gameRatingElement);
-
-        const gameReviewElement = document.createElement('p');
-        gameReviewElement.innerText = game.review;
-        gameContainerElement.appendChild(gameReviewElement);
-
-        const recHeaderElement= document.createElement('h2');
+        const recHeaderElement= createTextElement('h2', 'recommended', gameContainerElement);
         recHeaderElement.id = 'rec-title';
-        recHeaderElement.innerText = 'recommended';
-        gameContainerElement.appendChild(recHeaderElement);
 
         const allRecsContainerElement = document.createElement('div');
         gameContainerElement.appendChild(allRecsContainerElement);
@@ -49,13 +39,9 @@ ready(function() {
             recContainerElement.addEventListener('click', gotoGame(recId));
             allRecsContainerElement.appendChild(recContainerElement);
 
-            const recNameElement = document.createElement('h3');
-            recNameElement.innerText = rec.name;
-            recContainerElement.appendChild(recNameElement); 
 
-            const recRatingElement = document.createElement('h3');
-            recRatingElement.innerText = formatRating(game.rating);
-            recContainerElement.appendChild(recRatingElement); 
+            createTextElement('h3', rec.name, recContainerElement);
+            createTextElement('h3', formatRating(rec.rating), recContainerElement);
         }
 
     }

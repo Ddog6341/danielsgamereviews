@@ -56,8 +56,8 @@ export const gamesTable = [
     },
     {
         id: 8,
-        name: 'Farcry 3',
-        rating: 8,
+        name: 'God of War Ragnarok',
+        rating: 10,
         recs: [1,2,3],
         review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt aliquam eros eget semper. Integer ac felis nibh. Vestibulum ligula tellus, ultrices at felis volutpat, ullamcorper lacinia augue.'
     
