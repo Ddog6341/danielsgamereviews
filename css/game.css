@@ -9,3 +9,11 @@
     font-size: 36px;
     margin: 60px 20px 20px;
 }
+
+button {
+    background-color: red;
+    font-size: large;
+    padding: 8px 16px;
+    border-radius: 8px;
+    box-shadow: 0 8px 12px 0 rgb(250, 246, 246), 0 10px 38px 0 rgb(250, 246, 246);
+}
