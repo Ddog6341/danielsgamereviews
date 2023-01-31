@@ -24,3 +24,7 @@ button:hover {
     margin: 20px;
     padding: 10px;
 }
+
+button:disabled {
+    visibility: hidden;
+}

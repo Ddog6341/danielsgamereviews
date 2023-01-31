@@ -29,20 +29,28 @@ function renderGamesPage(page, size){
     }
 
     // render paging buttons
+    const pageElement = document.createElement('div');
+    pageElement.classList.add('page');
+    gamesContainerElement.appendChild(pageElement);
+
+    const prevButton = createTextElement('button', 'prev', pageElement);
     if(page > 0){
-        const prevButton = createTextElement('button', 'prev', gamesContainerElement);
         prevButton.addEventListener('click', () => renderGamesPage(page - 1, size));
+    } else {
+        prevButton.disabled = true;
     }
 
-    createTextElement('h3', `page ${page + 1}`, gamesContainerElement);
+    createTextElement('h3', `page ${page + 1}`, pageElement);
 
+    const nextButton = createTextElement('button', 'next', pageElement);
     if(!isLastPage) {
-        const nextButton = createTextElement('button', 'next', gamesContainerElement);
         nextButton.addEventListener('click', () => renderGamesPage(page + 1, size));
+    } else {
+        nextButton.disabled = true; 
     }
 }
 
 ready(function() {
-    renderGamesPage(0, 5);
+    renderGamesPage(0, 4);
 });
 
