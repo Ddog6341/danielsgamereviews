@@ -1,5 +1,5 @@
 
-import {createTextElement, formatRating, ready} from './common.js';
+import {createTextElement, createRatingElement, ready} from './common.js';
 import {gamesTable} from './data.js';
 
 function gotoGame(id){
@@ -25,7 +25,7 @@ function renderGamesPage(page, size){
         gamesContainerElement.appendChild(gameElement);
 
         createTextElement('h2', game.name, gameElement);
-        createTextElement('h2', formatRating(game.rating), gameElement);
+        createRatingElement(game.rating, gameElement);
     }
 
     // render paging buttons

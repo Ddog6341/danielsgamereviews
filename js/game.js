@@ -1,5 +1,5 @@
 
-import {createTextElement, formatRating, ready} from './common.js';
+import {createRatingElement, createTextElement, ready} from './common.js';
 import {gamesTable} from './data.js';
 
 function getIdFromUrl(){
@@ -27,7 +27,7 @@ ready(function() {
     backButtonElement.addEventListener('click', gotoHome());
 
     createTextElement('h2', game.name, gameContainerElement);
-    createTextElement('h2', formatRating(game.rating), gameContainerElement);
+    createRatingElement(game.rating, gameContainerElement);
     createTextElement('p', game.review, gameContainerElement);
 
     const recHeaderElement = createTextElement('h2', 'recommended', gameContainerElement);
@@ -48,7 +48,7 @@ ready(function() {
 
 
         createTextElement('h3', rec.name, recContainerElement);
-        createTextElement('h3', formatRating(rec.rating), recContainerElement);
+        createRatingElement(rec.rating, recContainerElement);
     }
 
     
