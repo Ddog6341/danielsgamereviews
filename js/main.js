@@ -2,17 +2,45 @@
 import {createTextElement, createRatingElement, ready} from './common.js';
 import {gamesTable} from './data.js';
 
+const initPage = 0;
+const initSize = 5;
+
+let searchText = '';
+
 function gotoGame(id){
     return () => window.location.href = 'html/game.html?id=' + id;
 }
 
-function renderGamesPage(page, size){
-    const curPage = page * size;
-    const nxtPage = (page + 1) * size;
-    const isLastPage = nxtPage > gamesTable.length;
-    const gamesPage = gamesTable.slice(
-        curPage, isLastPage ? gamesTable.length : nxtPage
+function setupSearchBar(){
+    const searchBar = document.getElementById('search-bar');
+    searchBar.addEventListener('keyup', () => searchBarKeyup(searchBar));
+}
+
+function searchBarKeyup(searchBar){
+    searchText = searchBar.value;
+    renderGamesPage(initPage, initSize);
+}
+
+function getGamesPageObject(page, size){
+    const startIdx = page * size;
+    const endIdx = (page + 1) * size;
+    const allMatchingGames = !!searchText
+        ? gamesTable.filter(game => game.name.includes(searchText))
+        : gamesTable;
+
+    const isLastPage = endIdx >= allMatchingGames.length;
+    const gamesPage = allMatchingGames.slice(
+        startIdx, isLastPage ? allMatchingGames.length : endIdx
     );
+    return {
+      isLastPage, gamesPage
+    };
+}
+
+function renderGamesPage(page, size){
+    const {
+        isLastPage, gamesPage
+    } = getGamesPageObject(page, size);
 
     // render games page
     const gamesContainerElement = document.getElementById('games-container');
@@ -51,6 +79,7 @@ function renderGamesPage(page, size){
 }
 
 ready(function() {
-    renderGamesPage(0, 4);
+    setupSearchBar();
+    renderGamesPage(initPage, initSize);
 });
 
