@@ -9,5 +9,14 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
 
+.search {
+    margin: 0 20px;
+}
+
+.search input {
+    font-size: 20px;
+    padding: 8px;
+    width: 100%;
 }
