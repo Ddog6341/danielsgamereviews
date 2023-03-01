@@ -17,7 +17,8 @@ function setupSearchBar(){
 }
 
 function searchBarKeyup(searchBar){
-    searchText = searchBar.value;
+    
+    searchText = searchBar.value.toLowerCase();
     renderGamesPage(initPage, initSize);
 }
 
@@ -25,7 +26,7 @@ function getGamesPageObject(page, size){
     const startIdx = page * size;
     const endIdx = (page + 1) * size;
     const allMatchingGames = !!searchText
-        ? gamesTable.filter(game => game.name.includes(searchText))
+        ? gamesTable.filter(game => game.name.toLowerCase().includes(searchText))
         : gamesTable;
 
     const isLastPage = endIdx >= allMatchingGames.length;
