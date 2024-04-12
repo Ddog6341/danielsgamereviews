@@ -17,7 +17,6 @@ function setupSearchBar(){
 }
 
 function searchBarKeyup(searchBar){
-    
     searchText = searchBar.value.toLowerCase();
     renderGamesPage(initPage, initSize);
 }
